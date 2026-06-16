@@ -1,7 +1,3 @@
-data "volterra_namespace" "existing" {
-  name = var.xc_namespace
-}
-
 resource "null_resource" "namespace_mode" {
   triggers = {
     mode = data.volterra_namespace.existing.id == "" ? "create" : "use_existing"
